@@ -748,6 +748,15 @@
     "question": "Which gender shows the largest disparity between the highest and lowest percentage of students across the racial and ethnic groups?",
     "options": ["Male", "Female", "Total", "The disparity is the same for both genders"],
     "answer": "Female"
+  },
+    {
+    "id": 31,
+    "questionType": "Checking",
+    "explanationType": "None",
+    "chartImage": "noexp_de_ch3.png",
+    "question": "Can you see this question?",
+    "options": ["Yes", "No", "Total", "The disparity is the same for both genders"],
+    "answer": "Yes"
   }
 
 ]
