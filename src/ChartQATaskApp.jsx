@@ -235,7 +235,7 @@ const ChartQATaskApp = () => {
       <div className="flex flex-col min-h-screen">
         {/* Top Navbar */}
         <div className="fixed top-0 left-0 right-0 bg-gray-900 text-white px-6 py-3 flex justify-between items-center z-50">
-          <div className="text-lg font-semibold">Chart QA Task</div>
+          <div className="text-lg font-semibold">Chart QA Task (Textual + Visual Clues) </div>
           <div className="flex items-center gap-6">
             <div className="text-orange-400 font-semibold text-md">
               ⏳ Time Left: {Math.floor(globalTimeLeft / 60)}:{String(globalTimeLeft % 60).padStart(2, '0')}
