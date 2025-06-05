@@ -1,0 +1,753 @@
+[
+  {
+    "id": 1,
+    "questionType": "Relationship Analysis",
+    "explanationType": "Visual",
+    "chartImage": "ra_ch5_s0.png",
+    "question": "Which category exhibited an opposite trend between Jun-Aug 2013 and Mar-May 2014?",
+    "options": ["Employment (Aged 16+)", "Economically Inactive (Aged 16-64)", "Economically Inactive (Aged 65+)", "Household Population (Aged 16+)"],
+    "answer": "Economically Inactive (Aged 16-64)",
+    "visualExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Compare Category Trends",
+        "stepDescription":"Examine direction changes between Jun–Aug 2013 (Yellow bars) and Mar–May 2014 (Blue bars).",
+        "subSteps": [
+          {
+            "subStepNumber": "1.1",
+            "subStepDescription": "Consistent trends: Bars moved in the same direction both years.",
+            "example": "Employment (both ↑), Unemployment (both ↓)",
+            "highlightedChartImage": "ra_ch5_s11.png"
+          },
+          {
+            "subStepNumber": "1.2",
+            "subStepDescription": "Reversed trend: One category shows opposite directions.",
+            "example": "Economically Inactive (16–64) – ↓ in 2013, ↑ in 2014",
+            "highlightedChartImage": "ra_ch5_s12.png"
+          }
+        ]
+        
+      },
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Find the Reversal",
+        "stepDescription": "Look for the category where the trend flipped from negative to positive (or vice versa)."
+      }
+    ]
+  },
+
+  {
+    "id": 2,
+    "questionType": "Relationship Analysis",
+    "explanationType": "Visual",
+    "chartImage": "ra_ch1_s0.png",
+    "question": "Is there a correlation between the percentage change in natural gas prices and electricity prices across the regions?",
+    "options": [
+      "Strong Positive Correlation",
+      "Weak Positive Correlation",
+      "Weak Negative Correlation",
+      "No Correlation"
+    ],
+    "answer": "Weak Positive Correlation",
+    "visualExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Observing the Direction of the Relationship",
+        "subSteps": [
+          {
+            "subStepNumber": "1",
+            "subStepDescription": " Positive correlation: Both bars move in the same direction →",
+            "example": "Example: Mid-Atlantic and New England (Blue ↓, Red ↓)",
+            "highlightedChartImage": "ra_ch1_s11.png"
+          },
+          {
+            "subStepNumber": "2",
+            "subStepDescription": "Negative correlation: Bars move in opposite directions →",
+            "example": "Example: Northern Calif. (Blue ↓, Red ↑)",
+            "highlightedChartImage": "ra_ch1_s12.png"
+          }
+        ]
+      },
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Observing the Relationship in the Data",
+        "subSteps": [
+          {
+            "subStepNumber": "1",
+            "subStepDescription": "Strong correlation: Trend is consistent across most regions",
+            
+            "highlightedChartImage": "ra_ch1_s21.png"
+          },
+          {
+            "subStepNumber": "2",
+            "subStepDescription": "Weak correlation: Pattern varies or is less aligned",
+           
+            "highlightedChartImage": "ra_ch1_s22.png"
+          }
+        ]
+        
+      }
+    ]
+  },
+  
+  
+
+
+  {
+    "id": 4,
+    "questionType": "cdv",
+    "explanationType": "Visual",
+    "chartImage": "cdv_ch3_s0.png",
+    "question": "What was the net change in the total percentage of adults (16+) owning devices that increased in adoption from 2008 to 2018?",
+    "options": ["136%", "121%", "97%", "149%"],
+    "answer": "149%",
+    "visualExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Identify Devices with Increased Adoption:",
+        "stepDescription":"Select devices that show higher ownership in 2018 than in 2008.",
+        "example": "Smartphone, Tablet, TV Recorder, DAB Radio, Smart TV, Smart Speaker, Wearables.",
+        "highlightedChartImage": "cdv_ch3_s1.png"
+      },
+      {"stepNumber": "Step 2",
+        "stepTitle": "Calculate Net Change for Each Device:",
+        "stepDescription":"Use the formula:",
+        "formula": "Net Change = 2018\\% \\ − 2008\\%",
+        "highlightedChartImage": "cdv_ch3_s2.png"
+      },
+      {"stepNumber": "Step 3",
+        "stepTitle": "Compute the Total Increase:",
+        "stepDescription":"Add all the net increases from Step 2 to find the overall change in ownership percentage across all increasing devices.",
+        "highlightedChartImage": "cdv_ch3_s3.png"
+      }
+    ]
+  
+  },
+  {
+    "id": 5,
+    "questionType": "Relationship Analysis",
+    "explanationType": "Visual",
+    "chartImage": "ra_ch2_s0.png",
+    "question": "Is there a clear relationship between Medical and Fuel spending across generations—specifically, does higher Medical spending tend to correspond with lower Fuel spending?",
+    "options": ["Strong positive correlation", "Weak positive correlation", "Weak negative correlation", "Strong negative correlation"],
+    "answer": "Weak negative correlation",
+    "visualExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Understanding Correlation Types:",
+        "subSteps": [
+          {
+            "subStepNumber": "1",
+            "subStepDescription": "Positive correlation: Both ↑ or both ↓"
+            
+          },
+          {
+            "subStepNumber": "2",
+            "subStepDescription": "Negative correlation: One ↑, the other ↓"
+          },
+          {
+            "subStepNumber": "3",
+            "subStepDescription": "Strong correlation: Consistent pattern"
+          },
+          {
+            "subStepNumber": "4",
+            "subStepDescription": "Weak correlation: Appears sometimes, not always"
+          }
+
+        ],
+        "stepDescription":"In the chart, we compare Fuel and Medical spending across generations to observe these relationships.",
+        "highlightedChartImage": "ra_ch2_s1.png"
+      },
+      {"stepNumber": "Step 2",
+        "stepTitle": "Observe and Compare Trends:",
+        
+        "subSteps": [
+          {
+            "subStepNumber": "1",
+            "subStepDescription": "Fuel spending generally decreases from Boomers to Gen Z. The purple bars become progressively shorter from left to right.",
+            
+            "highlightedChartImage": "ra_ch2_s21.png"
+          },
+          {
+            "subStepNumber": "2",
+            "subStepDescription": "Medical spending fluctuates, rising in some generations and falling in others.The blue bars vary in height, especially rising sharply for Millennials.",
+            
+            "highlightedChartImage": "ra_ch2_s22.png"
+          }
+        ]
+      },
+      {"stepNumber": "Step 3",
+        "stepTitle": "Interpret the Pattern:",
+        "stepDescription":"Although Fuel ↓ while Medical ↑ for Millennials, this inverse pattern isn’t consistent across all generations. The alternating bar heights suggest no strong correlation between the two variables.",
+        "highlightedChartImage": "ra_ch2_s3.png"
+      }
+    ]
+  
+  },
+  {
+    "id": 6,
+    "questionType": "Relationship Analysis",
+    "explanationType": "Visual",
+    "chartImage": "ra_ch3_s0.png",
+    "question": "As individuals shift from Left to Right ideologies, how does their preference for Kevin Rudd and Julia Gillard change?",
+    "options": ["Support for both decreases", "Rudd's support decreases, Gillard’s fluctuates", "Rudd's support increases, Gillard's decreases", "Both have consistent support across ideologies"],
+    "answer": "Rudd's support decreases, Gillard’s fluctuates",
+    "visualExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Identify the Trend Across Ordered Categories:",
+        "stepDescription":"To understand preference shifts, track how support for each candidate changes as ideology moves from Left → Right.",
+        
+        "highlightedChartImage": "ra_ch3_s0.png"
+      },
+      {"stepNumber": "Step 2",
+        "stepTitle": "Kevin Rudd – Support Peaks at Centre Then Declines Rightward:",
+        "stepDescription":"His support peaks at the Centre (55%), then steadily declines toward the Right (32%). The red bars in the chart form a downward slope, illustrating a consistent decrease across ideologies.",
+        
+        "highlightedChartImage": "ra_ch3_s2.png"
+      },
+      {"stepNumber": "Step 3",
+        "stepTitle": "Julia Gillard – Support Drops Then Rises, Showing Fluctuation:",
+        "stepDescription":"Her support drops sharply from Left (45%) to Centre (27%), then rises again on the Right (38%). This creates a fluctuating orange bar pattern, rather than a steady trend.",
+        "highlightedChartImage": "ra_ch3_s3.png"
+      },
+      {"stepNumber": "Step 4",
+        "stepTitle": "Comparing Rudd’s Consistent Decline with Gillard’s Fluctuating Support:",
+        "stepDescription":"Side-by-side, the red bars steadily decrease, while the orange bars vary in height.",
+        "highlightedChartImage": "ra_ch3_s4.png"
+      }
+    ]
+  
+  },
+  {
+    "id": 7,
+    "questionType": "CDV",
+    "explanationType": "None",
+    "chartImage": "noexp_cdv_ch1.png",
+    "question": "If all voters currently \"leaning\" toward Trump switched to Harris, and all voters currently \"leaning\" toward Harris became undecided, who would be ahead in the polls?",
+    "options": ["Trump", "Harris", "Undecided voters take the lead", "Tie"],
+    "answer": "Harris"
+  },
+  {
+    "id": 8,
+    "questionType": "Pattern Identification",
+    "explanationType": "None",
+    "chartImage": "noexp_pi_ch1.png",
+    "question": "Which category experienced the most significant reversal in spending growth between the two periods (2014–2018 vs. 2019–2023)?",
+    "options": ["Public Order & Safety", "Housing", "Transport", "Defence"],
+    "answer": "Public Order & Safety"
+  },
+
+  {
+    "id": 9,
+    "questionType": "pi",
+    "explanationType": "None",
+    "chartImage": "noexp_ra_ch1.png",
+    "question": "As individuals shift from Left to Right ideologies, how does their preference for Kevin Rudd and Julia Gillard change?",
+    "options": [" Strong positive correlation", "Weak positive correlation", "Weak negative correlation", "Strong negative correlation"],
+    "answer": "Strong negative correlation"
+  },
+  {
+    "id": 10,
+    "questionType": "de",
+    "explanationType": "None",
+    "chartImage": "noexp_de_ch1.png",
+    "question": "Which country experienced the fastest decline in fertility rate from more than 6 children per woman to fewer than 3 children per woman?",
+    "options": ["China", "Bangladesh", "South Korea", "Iran"],
+    "answer": "Iran"
+  },
+
+  {
+    "id": 11,
+    "questionType": "cdv",
+    "explanationType": "Text",
+    "chartImage": "texp_cdv_ch1.png",
+    "question": "What is the median annual PM2.5 emission (in tonnes) among the listed sources of air pollution in the UK in 2016?",
+    "options": [" 3,700 t", "4,300 t", "13,400 t", "13,900 t"],
+    "answer": "3,700 t",
+    "textExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Identify All Emission Values:",
+        "stepDescription":"List the annual PM2.5 emissions (in tonnes) from each source shown in the chart. There are 11 sources in total." 
+      },
+
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Sort the Values in Ascending Order:",
+        "stepDescription":"Rearrange all 11 emission values from smallest to largest."
+        
+      },
+      {
+        "stepNumber": "Step 3",
+        "stepTitle": "Calculate the Median:",
+        "stepDescription":"Let n be the number of values. For an odd n, the median is the value at position:",
+        "formula": "Median Position = \\frac{(n\\ +\\ 1)}{2}" 
+
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "questionType": "cdv",
+    "explanationType": "Text",
+    "chartImage": "texp_cdv_ch2.png",
+    "question": "Which age group has a prevalence of drug use disorders that is closest to the average prevalence across all listed age-specific groups (excluding “All ages” and “Age-standardized”)?",
+    "options": [" 30–34 years old", "15–19 years old", "15–29 years old", "15–49 years old"],
+    "answer": "30–34 years old",
+    "textExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Collect Age-Specific Values:",
+        "stepDescription":"Identify the prevalence rates for all age-specific groups (excluding “All ages” and “Age-standardized” entries): 5–14, 10–14, 15–19, 20–24, 25–29, 30–34, 15–49, 70+." 
+      },
+
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Calculate the Average Prevalence:",
+        "stepDescription":"Let n be the number of values. For an odd n, the median is the value at position:",
+        "formula": "Average = \\frac{\\sum\\ Prevalence Values}{n}" 
+        
+      },
+      {
+        "stepNumber": "Step 3",
+        "stepTitle": "Find the Closest Value:",
+        "stepDescription":"Compare each age group's prevalence to the computed average and choose the one with the smallest difference."
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "questionType": "ra",
+    "explanationType": "Text",
+    "chartImage": "texp_ra_ch1.png",
+    "question": "What relationship is observed between educational attainment and depression prevalence among employed individuals in Poland, 2014?",
+    "options": ["Higher education is associated with lower depression prevalence", "Higher education is associated with higher depression prevalence", "There is no consistent pattern between education and depression prevalence", "Depression prevalence is the same across all education levels"],
+    "answer": "Higher education is associated with lower depression prevalence",
+    "textExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Identify Relevant Groups:",
+        "stepDescription":"Focus only on the employed population groups across different education levels: Below upper secondary (employed), Upper secondary & post-secondary non-tertiary (employed), Tertiary (employed)" 
+      },
+
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Compare Depression Rates Across Levels",
+        "stepDescription":"Observe how depression prevalence changes as education level increases: Below upper secondary (2.9%), Upper secondary/post-secondary non-tertiary (2.7%), Tertiary (2.2%)" 
+        
+      },
+      {
+        "stepNumber": "Step 3",
+        "stepTitle": "Interpret the Trend:",
+        "stepDescription":"There is a clear inverse relationship: as educational attainment increases, depression prevalence decreases among employed individuals."
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "questionType": "cdv",
+    "explanationType": "Text",
+    "chartImage": "texp_de_ch1.png",
+    "question": "Which of the following statements is correct based on the chart?",
+    "options": ["All non-organic grains shown use more land than non-organic legumes.", "The land use for organic eggs is more than twice that of non-organic eggs.", "Non-organic pork requires more land than organic poultry.", "Organic tomato production uses less land than any other food listed."],
+    "answer": "The land use for organic eggs is more than twice that of non-organic eggs.",
+    "textExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Compare Organic vs. Non-Organic Variants:",
+        "stepDescription":"Focus on foods where both organic and non-organic versions are shown (e.g., eggs, pork, poultry, tomatoes).",
+        "example": "Look at the bar lengths for organic eggs and non-organic eggs to see if one is more than double the other."
+      },
+
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Eliminate Incorrect Comparisons",
+        "subSteps": [
+          {
+            "subStepNumber": "1",
+            "subStepDescription": "Check if all non-organic grains (like barley, wheat, rice) really use more land than legumes (like soybeans)."
+            
+          },
+          {
+            "subStepNumber": "2",
+            "subStepDescription": "Look at non-organic pork and compare its land use to organic poultry to assess whether it’s greater."
+          },
+          {
+            "subStepNumber": "3",
+            "subStepDescription": "Find which food uses the least land overall — is it really organic tomatoes, or another?"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "questionType": "Computing Derived Value",
+    "explanationType": "None",
+    "chartImage": "noexp_cdv_ch3.png",
+    "question": "Which news outlet has the greatest disparity in its age distribution, measured as the sum of absolute percentage differences from a uniform 25% distribution across all four age groups? ",
+    "options": ["NPR", "MSNBC", "New York Times", "Fox News"],
+    "answer": "MSNBC"
+  },
+
+  {
+    "id": 16,
+    "questionType": "Relationship Analysis",
+    "explanationType": "Visual",
+    "chartImage": "ra_ch4_s0.png",
+    "question": "As investments (fixed prices) fluctuated between Q4 2019 and Q1–Q4 2021, how did the unemployment rate tend to respond?",
+    "options": ["Strong positive correlation", "Weak positive correlation", "Weak negative correlation", "Strong negative correlation"],
+    "answer": "Weak negative correlation",
+    "visualExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Identify Key Variables:",
+        "stepDescription":"Track the changes in Investments (Red bars) and Unemployment Rate (Green bars) across all quarters.",
+        "highlightedChartImage": "ra_ch4_s1.png"
+      },
+      {"stepNumber": "Step 2",
+        "stepTitle": "Compare Direction of Movement:",
+        
+        "subSteps": [
+          {
+            "subStepNumber": "1",
+            "subStepDescription": "From Q1 2020 → Q4 2020, Investments (Red bars) declined while Unemployment Rate (Green bars) rose.",
+            
+            "highlightedChartImage": "ra_ch4_s21.png"
+          },
+          {
+            "subStepNumber": "2",
+            "subStepDescription": "In Q1–Q4 2021, Investments increased, while Unemployment remained high but stopped rising.",
+            
+            "highlightedChartImage": "ra_ch4_s22.png"
+          }
+        ]
+      },
+      {"stepNumber": "Step 3",
+        "stepTitle": "Interpret Relationship:",
+        
+        
+        
+      
+        "subSteps": [
+          {
+            "subStepNumber": "1",
+            "subStepDescription": "Negative correlation: Variables move in opposite directions."
+          },
+          {
+            "subStepNumber": "2",
+            "subStepDescription": "Positive correlation: Variables move in the same direction."
+          }
+        ]
+      }
+    ]
+  
+  },
+  {
+    "id": 17,
+    "questionType": "Pattern Identification",
+    "explanationType": "Visual",
+    "chartImage": "pi_ch1_s0.png",
+    "question": "During which period did Twitter's follower count for the Houston Texas football team show the greatest surge compared to Facebook’s relatively steady growth?",
+    "options": ["August 2012 to February 2013", "February 2014 to August 2014", "August 2016 to February 2017", "February 2020 to August 2020"],
+    "answer": "August 2016 to February 2017",
+    "visualExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Compare Growth Trends",
+        
+        "subSteps": [
+          {
+            "subStepNumber": "1.1",
+            "subStepDescription": "Track changes in Facebook fans (Blue) and Twitter followers (Black) over time.",
+           
+            "highlightedChartImage": "pi_ch1_s11.png"
+          },
+          {
+            "subStepNumber": "1.2",
+            "subStepDescription": "Highlight periods where Twitter grew more than Facebook (￪Black > ￪Blue).",
+            
+            "highlightedChartImage": "pi_ch1_s12.png"
+          }
+        ]
+        
+      },
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Find Largest Twitter-Led Gap",
+        "stepDescription": "From those periods, locate the one where Twitter’s gain most clearly outpaced Facebook — showing the widest relative growth difference.",
+        "highlightedChartImage": "pi_ch1_s2.png"
+      }
+    ]
+  },
+
+  {
+    "id": 18,
+    "questionType": "Pattern Identification",
+    "explanationType": "Visual",
+    "chartImage": "pi_ch2_s0.png",
+    "question": "Which of the following aspects of society shows the most mixed perception of the internet’s influence?",
+    "options": ["Education", "The economy", "Politics", "Morality"],
+    "answer": "Morality",
+    "visualExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Compare Opinion Spread:",
+        "stepDescription":" A mixed view shows fairly even splits across Good (green), No influence (gray), and Bad (blue).",
+        
+        "highlightedChartImage": "pi_ch2_s1.png"
+      },
+      {"stepNumber": "Step 2",
+        "stepTitle": "Identify Most Balanced Category:",
+        "stepDescription":"Scan for the category where no single bar dominates. One option shows all three bars with comparable size — indicating the most divided perception.",
+        
+        "highlightedChartImage": "pi_ch2_s2.png"
+      }
+    ]
+  
+  },
+  {
+    "id": 19,
+    "questionType": "Data Extraction",
+    "explanationType": "Text",
+    "chartImage": "texp_de_ch2.png",
+    "question": "Which group had the highest combined percentage of respondents who said it is \"Not too/Not at all\" important or responded \"Don't Know\" about the importance of the losing presidential candidate publicly conceding?",
+    "options": ["All voters", "Trump supporters", "Clinton supporters", "Johnson/Stein supporters"],
+    "answer": "Johnson/Stein supporters",
+    "textExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Add Relevant Percentages:",
+        "stepDescription":"For each group, combine the values for “Not too/Not at all” and “Don’t Know” responses:",
+   
+        "formula": "Combined = Not\\ too/Not\\ at\\ all\\ +\\ DK"
+        
+      },
+
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Compare Totals Across Groups",
+        "stepDescription":"Identify the group with the highest combined percentage." 
+        
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "questionType": "Computing Derived Value",
+    "explanationType": "Text",
+    "chartImage": "texp_cdv_ch4.png",
+    "question": "What is the median number of visits among the top 10 paid attractions in the North West region in 2019?",
+    "options": ["327,000", "333,617.5", "340,235", "324,872"],
+    "answer": "333,617.5",
+    "textExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Find the Median Position:",
+        "stepDescription":" There are 10 attractions. To find the median, take the average of the 5th and 6th values in the sorted list" 
+      },
+
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Calculate the Median",
+        "stepDescription":"List the visit counts in descending order and identify the 5th and 6th values. Compute their average using:",
+        "formula": "Median = \\frac{5th\\ value\\ +\\ 6th\\ value}{2}"
+        
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "questionType": "Data Extraction",
+    "explanationType": "Visual",
+    "chartImage": "de_ch1_s0.png",
+    "question": "Which two risk factors had nearly identical disease burdens measured in DALYs in the Northern Mariana Islands in 1990?",
+    "options": ["Smoking and High cholesterol", "High cholesterol and Air pollution", "Indoor Air pollution and Low Vegetable Diet"],
+    "answer": "High cholesterol",
+    "visualExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Look for numerically close values",
+        "stepDescription":"Compare the DALYs of each pair in the chart.",
+        
+        "subSteps": [
+          {
+            "subStepNumber": "1",
+            "subStepDescription": "Smoking = 474 and High cholesterol = 328 → not close.",
+           
+            "highlightedChartImage": "de_ch1_s11.png"
+          },
+          {
+            "subStepNumber": "2",
+            "subStepDescription": "High cholesterol = 328 and Air pollution (360) → relatively close, but not closest.",
+            
+            "highlightedChartImage": "de_ch1_s12.png"
+          },
+          {
+            "subStepNumber": "3",
+            "subStepDescription": "Indoor air pollution = 168 and Diet low in vegetables = 169 → closest pair",
+            
+            "highlightedChartImage": "de_ch1_s13.png"
+          }
+        ]
+        
+      },
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Identify the 2 risk factors with identical values",
+        "stepDescription": "Find the pair with the smallest difference in DALYs.",
+        "highlightedChartImage": "de_ch1_s2.png"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "questionType": "Data Extraction",
+    "explanationType": "Visual",
+    "chartImage": "de_ch2_s0.png",
+    "question": "According to the chart, in 2018, which type of social media was used by the second largest percentage of businesses?",
+    "options": ["Wiki based knowledge sharing tools", "Multimedia content sharing websites", "Business blogs or microblogs", "Social networks"],
+    "answer": "Business blogs or microblogs",
+    "visualExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Locate 2018 values:",
+        "stepDescription":"Examine all bars related to the year 2018 (Yellow bars) across each social media type to compare usage levels.",
+        
+        "highlightedChartImage": "de_ch2_s1.png"
+      },
+      {"stepNumber": "Step 2",
+        "stepTitle": "Find second highest in 2018:",
+        "stepDescription":"Social networks (68.4%) is the tallest yellow bar. The next tallest is Business blogs or microblogs (41.9%).",
+        
+        "highlightedChartImage": "de_ch2_s2.png"
+      }
+    ]
+  
+  },
+  {
+    "id": 23,
+    "questionType": "Relationship Analysis",
+    "explanationType": "Text",
+    "chartImage": "texp_ra_ch2.png",
+    "question": "Which cost component demonstrates a pattern most strongly correlated with the increase in total operating costs from 2013 to 2020?",
+    "options": ["Medical costs", "Operating costs", "Cost of products sold", "Depreciation and amortization"],
+    "answer": "Medical costs",
+    "textExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Compare Growth Patterns:",
+        "stepDescription":"Review each cost category’s increase from 2013 to 2020."
+        
+      },
+
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Find Closest Match:",
+        "stepDescription":"Identify the category with the most consistent and largest growth trend—this best aligns with the rise in total operating costs." 
+        
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "questionType": "Pattern Identification",
+    "explanationType": "Text",
+    "chartImage": "texp_pi_ch1.png",
+    "question": "Which quarter showed a consistent pattern of achieving or exceeding the target savings goal while reducing debt (spending) compared to previous months?",
+    "options": ["Q1 (Jan–Mar)", "Q2 (Apr–Jun)", "Q3 (Jul–Sep)", "Q4 (Oct–Dec)"],
+    "answer": "Q2 (Apr–Jun)",
+    "textExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Compare Savings vs. Target:",
+        "stepDescription":"For each quarter, examine whether actual savings consistently meet or exceed the target in all three months."
+        
+      },
+
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Track Spending Trend:",
+        "stepDescription":"Look at how spending (debt) changes month to month. Identify the quarter where spending shows a steady decline or remains lower than earlier months." 
+        
+      },
+      {
+        "stepNumber": "Step 3",
+        "stepTitle": "Identify Consistency:",
+        "stepDescription":"Select the quarter where both criteria—achieving savings targets and reducing debt—are consistently met." 
+        
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "questionType": "Pattern Identification",
+    "explanationType": "Text",
+    "chartImage": "texp_pi_ch2.png",
+    "question": "Which age group shows the steepest downward trend across the vaccination stages — from One Dose to Fully Vaccinated to Booster — indicating the most dramatic decline in uptake?",
+    "options": ["12 to 17", "18 to 24", "45 to 64", "65+"],
+    "answer": "12 to 17",
+    "textExplanation": [
+      {
+        "stepNumber": "Step 1",
+        "stepTitle": "Compare Bar Heights by Group:",
+        "stepDescription":"For each age group, observe the percentage drop across stages: One Dose → Fully Vaccinated → Booster."
+        
+      },
+
+      {
+        "stepNumber": "Step 2",
+        "stepTitle": "Identify Steepest Downward Trend:",
+        "stepDescription":"Look for the group where the values consistently fall the most between each stage, indicating the sharpest decline in follow-through." 
+        
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "questionType": "Computing Derived Value",
+    "explanationType": "None",
+    "chartImage": "noexp_cdv_ch2.png",
+    "question": "In which of the following years did the combined share of Left-wing to far left, Center-left, and Centrist members in the European Parliament first fall below 70%?",
+    "options": ["1999", "2004", "2009", "2014"],
+    "answer": "2014"
+  },
+  {
+    "id": 27,
+    "questionType": "Data Extraction",
+    "explanationType": "None",
+    "chartImage": "noexp_de_ch2.png",
+    "question": "Which of the following statements is accurate based on the carbon footprint data of various transport modes?",
+    "options": ["The carbon footprint of a short-haul flight is more than twice that of a bus.", "A medium electric vehicle using UK electricity emits more CO₂ per km than a petrol car with 2 passengers.", "A domestic flight emits more than 6 times the CO₂ per km of national rail.", "A diesel car emits less CO₂ per km than a long-haul flight."],
+    "answer": "A domestic flight emits more than 6 times the CO₂ per km of national rail."
+  },
+  {
+    "id": 28,
+    "questionType": "Relationship Analysis",
+    "explanationType": "None",
+    "chartImage": "noexp_ra_ch2.png",
+    "question": "Which retailer experienced the most consistent increase in year-over-year foot traffic growth during the first three observed weeks, followed by a reversal?",
+    "options": ["Costco", "Sam's Club", "Target", "Walmart Supercenter"],
+    "answer": "Costco"
+  },
+  {
+    "id": 29,
+    "questionType": "Pattern Identification",
+    "explanationType": "None",
+    "chartImage": "noexp_pi_ch2.png",
+    "question": "Which age group shows the most polarized attitude toward using the technology?",
+    "options": ["18 to 29 years", "30 to 45 years", "46 to 60 years", "61 years and older"],
+    "answer": "61 years and older"
+  },
+  {
+    "id": 30,
+    "questionType": "Data Extraction",
+    "explanationType": "None",
+    "chartImage": "noexp_de_ch3.png",
+    "question": "Which gender shows the largest disparity between the highest and lowest percentage of students across the racial and ethnic groups?",
+    "options": ["Male", "Female", "Total", "The disparity is the same for both genders"],
+    "answer": "Female"
+  }
+
+]
