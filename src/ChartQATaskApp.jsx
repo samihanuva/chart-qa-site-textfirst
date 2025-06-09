@@ -376,9 +376,9 @@ useEffect(() => {
         <div className="fixed top-0 left-0 right-0 bg-gray-900 text-white px-6 py-3 flex justify-between items-center z-50">
           <div className="text-lg font-semibold">Chart QA Task - Textual First </div>
           <div className="flex items-center gap-6">
-            <div className="text-orange-400 font-semibold text-md">
+            {/* <div className="text-orange-400 font-semibold text-md">
               ⏳ Time Left: {Math.floor(globalTimeLeft / 60)}:{String(globalTimeLeft % 60).padStart(2, '0')}
-            </div>
+            </div> */}
 
             <button
             onClick={endTask}  disabled={submitted || endClicked}
