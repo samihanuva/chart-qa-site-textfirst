@@ -65,6 +65,13 @@ const [shuffledSamples, setShuffledSamples] = useState(() => {
     return saved ? JSON.parse(saved) : {};
   });
 
+
+  const [visitedSamples, setVisitedSamples] = useState(() => {
+  const stored = localStorage.getItem('visitedSamples');
+  return stored ? new Set(JSON.parse(stored)) : new Set();
+  });
+
+
   const [globalTimeLeft, setGlobalTimeLeft] = useState(() => {
     const saved = localStorage.getItem('globalTimeLeft');
     return saved ? parseInt(saved, 10) : rawSamples.length * 60;
@@ -81,7 +88,14 @@ const [shuffledSamples, setShuffledSamples] = useState(() => {
   const [hovered, setHovered] = useState(null);
   const [selected, setSelected] = useState(null);
   const [isTextSelecting, setIsTextSelecting] = useState(false);
-  const [questionStartTime, setQuestionStartTime] = useState(Date.now());
+  const [questionStartTime, setQuestionStartTime] = useState(() => {
+  const stored = localStorage.getItem('questionStartTime');
+  return stored ? parseInt(stored, 10) : Date.now();
+});
+
+useEffect(() => {
+  localStorage.setItem('questionStartTime', questionStartTime.toString());
+}, [questionStartTime]);
 
   const globalTimerRef = useRef(null);
 
@@ -103,16 +117,25 @@ const [shuffledSamples, setShuffledSamples] = useState(() => {
     }
   }, [taskStarted]);
 
+  const [taskStartTimestamp, setTaskStartTimestamp] = useState(() => {
+  const saved = localStorage.getItem('taskStartTimestamp');
+  return saved ? parseInt(saved, 10) : null;
+});
+
   useEffect(() => {
     localStorage.setItem('currentIndex', currentIndex.toString());
     localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
   }, [currentIndex, userAnswers]);
 
-  const startTask = () => {
-    setTaskStarted(true);
-    setQuestionStartTime(Date.now());
-    localStorage.setItem('taskStarted', 'true');
-  };
+const startTask = () => {
+  const startTime = Date.now();
+  setTaskStarted(true);
+  setQuestionStartTime(startTime);
+  setTaskStartTimestamp(startTime);
+  localStorage.setItem('taskStarted', 'true');
+  localStorage.setItem('taskStartTimestamp', startTime.toString());
+};
+
 
   const endTask = () => {
     clearInterval(globalTimerRef.current);
@@ -131,73 +154,140 @@ const [shuffledSamples, setShuffledSamples] = useState(() => {
   const hasVisual = Array.isArray(currentSample?.visualExplanation);
   const hasText = Array.isArray(currentSample?.textExplanation);
 
-  const handleAnswerChange = (option) => {
-    const duration = Math.floor((Date.now() - questionStartTime) / 1000);
-    const newAnswers = {
-      ...userAnswers,
-      [currentIndex]: {
-        chartId: currentSample.id,
-        questionType: currentSample.questionType,
-        explanationType: currentSample.explanationType,
-        selectedAnswer: option,
-        correctAnswer: currentSample.answer,
-        isCorrect: option === currentSample.answer,
-        timeTakenSeconds: duration,
-      },
-    };
-    setUserAnswers(newAnswers);
+ const handleAnswerChange = (option) => {
+  const chartKey = currentSample.id;
+  const prev = userAnswers[chartKey] || {};
+
+  const duration = Math.floor((Date.now() - questionStartTime) / 1000);
+  const prevTime = prev.timeTakenSeconds || 0;
+  const totalTime = prevTime + duration;
+
+  const newAnswers = {
+    ...userAnswers,
+    [chartKey]: {
+      chartId: currentSample.id,
+      questionType: currentSample.questionType,
+      explanationType: currentSample.explanationType,
+      selectedAnswer: option,
+      correctAnswer: currentSample.answer,
+      isCorrect: option === currentSample.answer,
+      timeTakenSeconds: totalTime,
+    },
   };
 
-  const handleNext = () => {
-    if (currentIndex < shuffledSamples.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-      setHovered(null);
-      setSelected(null);
-      setQuestionStartTime(Date.now());
-    } else {
-      endTask();
-    }
+  setUserAnswers(newAnswers);
+  setQuestionStartTime(Date.now()); // ✅ Reset for next timing interval
+};
+
+
+
+const recordTimeForCurrentQuestion = ({ allowIfUnanswered = false } = {}) => {
+  const chartKey = currentSample.id;
+  const prev = userAnswers[chartKey];
+
+  const hasAnswered = prev && prev.selectedAnswer;
+
+  if (!hasAnswered && !allowIfUnanswered) return;
+
+  const duration = Math.floor((Date.now() - questionStartTime) / 1000);
+  const totalTime = (prev?.timeTakenSeconds || 0) + duration;
+
+  const updatedAnswer = {
+    ...prev,
+    chartId: currentSample.id,
+    questionType: currentSample.questionType,
+    explanationType: currentSample.explanationType,
+    selectedAnswer: prev?.selectedAnswer || null,
+    correctAnswer: currentSample.answer,
+    isCorrect: prev?.selectedAnswer === currentSample.answer,
+    timeTakenSeconds: totalTime,
   };
 
-  const handleBack = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-      setHovered(null);
-      setSelected(null);
-      setQuestionStartTime(Date.now());
-    }
-  };
+  setUserAnswers((prevAnswers) => ({
+  ...prevAnswers,
+  [chartKey]: updatedAnswer,
+}));
+
+};
+
+
+
+
+const handleNext = () => {
+  if (!visitedSamples.has(currentIndex)) {
+    // First time visiting → log time even if unanswered
+    recordTimeForCurrentQuestion({ allowIfUnanswered: true });
+    setVisitedSamples((prev) => {
+      const newSet = new Set(prev).add(currentIndex);
+      localStorage.setItem('visitedSamples', JSON.stringify([...newSet]));
+      return newSet;
+    });
+  } else {
+    // Already visited → only count if answered
+    recordTimeForCurrentQuestion({ allowIfUnanswered: false });
+  }
+
+  if (currentIndex < shuffledSamples.length - 1) {
+    setCurrentIndex(currentIndex + 1);
+    setHovered(null);
+    setSelected(null);
+    // setQuestionStartTime(Date.now());
+  } else {
+    endTask();
+  }
+};
+
+
+const handleBack = () => {
+  recordTimeForCurrentQuestion({ allowIfUnanswered: false });
+
+  if (currentIndex > 0) {
+    setCurrentIndex(currentIndex - 1);
+    setHovered(null);
+    setSelected(null);
+    // setQuestionStartTime(Date.now());
+  }
+};
+
+
 
   const submitToBackend = async (auto = false) => {
-    const chartResponses = Object.values(userAnswers);
-    const totalTimeSeconds = chartResponses.reduce((sum, r) => sum + r.timeTakenSeconds, 0);
-    const payload = {
-      userId,
-      startTime: new Date(Date.now() - totalTimeSeconds * 1000),
-      endTime: new Date(),
-      totalTimeSeconds,
-      chartResponses,
-      summary: {
-        totalCharts: chartResponses.length,
-        correctAnswers: chartResponses.filter((r) => r.isCorrect).length,
-        wrongAnswers: chartResponses.filter((r) => !r.isCorrect).length,
-      },
-    };
+  const chartResponses = Object.values(userAnswers);
+  const now = Date.now();
 
-    try {
-      const res = await fetch('http://localhost:5000/api/responses', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      await res.json();
-      setSubmitted(true);
-      localStorage.clear(); // Clear localStorage after final submission
-      if (!auto) alert("✅ Your response has been submitted.");
-    } catch (err) {
-      console.error("❌ Failed to send response:", err);
-    }
+  // ✅ Use real taskStartTimestamp if available
+  const startTimestamp = taskStartTimestamp || now;
+  const totalTimeSeconds = Math.floor((now - startTimestamp) / 1000);
+
+  const payload = {
+    userId,
+    startTime: new Date(startTimestamp),
+    endTime: new Date(now),
+    totalTimeSeconds,
+    chartResponses,
+    summary: {
+      totalCharts: chartResponses.length,
+      correctAnswers: chartResponses.filter((r) => r.isCorrect).length,
+      wrongAnswers: chartResponses.filter((r) => !r.isCorrect).length,
+    },
   };
+
+  try {
+    const res = await fetch('http://localhost:5000/api/responses', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    await res.json();
+    setSubmitted(true);
+    localStorage.clear(); // ✅ Clear everything
+    setTaskStartTimestamp(null); // ✅ Reset this too
+    if (!auto) alert("✅ Your response has been submitted.");
+  } catch (err) {
+    console.error("❌ Failed to send response:", err);
+  }
+};
+
 
   const isExactMatch = (id) => selected === id || hovered === id;
   const isActiveStep = (stepId) => selected?.startsWith(`${stepId}`) || hovered?.startsWith(`${stepId}`);
@@ -239,6 +329,16 @@ const [shuffledSamples, setShuffledSamples] = useState(() => {
       window.removeEventListener('mouseup', handleMouseUp);
     };
   }, []);
+
+  useEffect(() => {
+  localStorage.setItem('visitedSamples', JSON.stringify([...visitedSamples]));
+}, [visitedSamples]);
+
+useEffect(() => {
+  setQuestionStartTime(Date.now());
+}, [currentIndex]);
+
+
 
   if (!taskStarted) {
     return (
@@ -396,7 +496,7 @@ const [shuffledSamples, setShuffledSamples] = useState(() => {
                     type="radio"
                     name={`question-${currentIndex}`}
                     value={option}
-                    checked={userAnswers[currentIndex]?.selectedAnswer === option}
+                    checked={userAnswers[currentSample.id]?.selectedAnswer === option}
                     onChange={() => handleAnswerChange(option)}
                     className="mr-2"
                   />
