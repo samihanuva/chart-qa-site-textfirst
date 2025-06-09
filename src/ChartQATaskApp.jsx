@@ -136,12 +136,17 @@ const startTask = () => {
   localStorage.setItem('taskStartTimestamp', startTime.toString());
 };
 
+const [endClicked, setEndClicked] = useState(false);
 
-  const endTask = () => {
+const endTask = () => {
+  if (!submitted) {
+    setEndClicked(true); // ✅ flag end task manually triggered
     clearInterval(globalTimerRef.current);
     setTaskEnded(true);
     submitToBackend();
-  };
+  }
+};
+
 
   const handleAutoSubmit = () => {
     setTaskEnded(true);
@@ -374,13 +379,13 @@ useEffect(() => {
             <div className="text-orange-400 font-semibold text-md">
               ⏳ Time Left: {Math.floor(globalTimeLeft / 60)}:{String(globalTimeLeft % 60).padStart(2, '0')}
             </div>
+
             <button
-              onClick={endTask}
-              disabled={submitted}
-              className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded"
-            >
-              End Task
-            </button>
+            onClick={endTask}  disabled={submitted || endClicked}
+            className={`px-3 py-1 rounded ${submitted || endClicked? 'bg-gray-400 text-white cursor-not-allowed' : 'bg-red-500 hover:bg-red-600 text-white' }`}>
+            {submitted || endClicked ? 'Task Ended' : 'End Task'}
+          </button>
+
           </div>
         </div>
 
@@ -516,7 +521,8 @@ useEffect(() => {
                 disabled={submitted}
                 className={`px-4 py-2 rounded ${submitted ? 'bg-gray-400 text-white cursor-not-allowed' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
               >
-                {currentIndex === shuffledSamples.length - 1 ? 'Submit' : 'Next'}
+                {currentIndex === shuffledSamples.length - 1 ? submitted ? 'Submitted' : 'Submit' : 'Next'}
+
               </button>
             </div>
           </div>
