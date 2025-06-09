@@ -22,13 +22,38 @@ const ChartQATaskApp = () => {
     return newId;
   });
 
-  const [shuffledSamples, setShuffledSamples] = useState(() => {
-    const stored = localStorage.getItem('shuffledSamples');
-    if (stored) return JSON.parse(stored);
-    const shuffled = shuffleArray(rawSamples);
-    localStorage.setItem('shuffledSamples', JSON.stringify(shuffled));
-    return shuffled;
-  });
+  // const [shuffledSamples, setShuffledSamples] = useState(() => {
+  //   const stored = localStorage.getItem('shuffledSamples');
+  //   if (stored) return JSON.parse(stored);
+  //   const shuffled = shuffleArray(rawSamples);
+  //   localStorage.setItem('shuffledSamples', JSON.stringify(shuffled));
+  //   return shuffled;
+  // });
+
+const [shuffledSamples, setShuffledSamples] = useState(() => {
+  const stored = localStorage.getItem('shuffledSamples');
+  if (stored) return JSON.parse(stored);
+
+  // ✅ Filter samples based on correct explanation types
+  const textSamples = rawSamples.filter(sample => sample.explanationType === 'Text');
+  const visualSamples = rawSamples.filter(sample => sample.explanationType === 'Visual');
+
+  // ✅ Debug logs to verify counts
+  console.log("✅ Text Samples:", textSamples.length);
+  console.log("✅ Visual Samples:", visualSamples.length);
+
+  // ✅ Shuffle each group
+  const shuffledText = shuffleArray(textSamples);
+  const shuffledVisual = shuffleArray(visualSamples);
+
+  // ✅ Concatenate for Text-First order
+  const orderedSamples = [...shuffledText, ...shuffledVisual];
+
+  // ✅ Save to localStorage
+  localStorage.setItem('shuffledSamples', JSON.stringify(orderedSamples));
+  return orderedSamples;
+});
+
 
   const [currentIndex, setCurrentIndex] = useState(() => {
     const saved = localStorage.getItem('currentIndex');
@@ -101,6 +126,8 @@ const ChartQATaskApp = () => {
   };
 
   const currentSample = shuffledSamples[currentIndex];
+
+
   const hasVisual = Array.isArray(currentSample?.visualExplanation);
   const hasText = Array.isArray(currentSample?.textExplanation);
 
@@ -232,10 +259,17 @@ const ChartQATaskApp = () => {
 
   return (
     <MathJaxContext>
+    
       <div className="flex flex-col min-h-screen">
+      {!currentSample ? (
+        <div className="flex justify-center items-center h-screen text-red-600 text-xl font-bold">
+          ❌ No valid chart sample found. Please check your data or filters.
+        </div>
+      ) : (
+        <div>
         {/* Top Navbar */}
         <div className="fixed top-0 left-0 right-0 bg-gray-900 text-white px-6 py-3 flex justify-between items-center z-50">
-          <div className="text-lg font-semibold">Chart QA Task (Textual + Visual Clues) </div>
+          <div className="text-lg font-semibold">Chart QA Task - Textual First </div>
           <div className="flex items-center gap-6">
             <div className="text-orange-400 font-semibold text-md">
               ⏳ Time Left: {Math.floor(globalTimeLeft / 60)}:{String(globalTimeLeft % 60).padStart(2, '0')}
@@ -388,6 +422,9 @@ const ChartQATaskApp = () => {
           </div>
         </div>
       </div>
+
+      )}
+    </div>
     </MathJaxContext>
   );
 };
