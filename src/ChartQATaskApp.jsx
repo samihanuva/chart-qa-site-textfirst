@@ -388,6 +388,7 @@ useEffect(() => {
 
           </div>
         </div>
+        
 
         <div className="flex flex-col items-center p-6 pb-20 pt-20 min-h-screen">
           {/* Chart and Explanation Layout */}
