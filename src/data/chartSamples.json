@@ -263,7 +263,7 @@
     "explanationType": "Text",
     "chartImage": "texp_cdv_ch1.png",
     "question": "What is the median annual PM2.5 emission (in tonnes) among the listed sources of air pollution in the UK in 2016?",
-    "options": [" 3,700 t", "4,300 t", "13,400 t", "13,900 t"],
+    "options": ["3,700 t", "4,300 t", "13,400 t", "13,900 t"],
     "answer": "3,700 t",
     "textExplanation": [
       {
@@ -293,7 +293,7 @@
     "explanationType": "Text",
     "chartImage": "texp_cdv_ch2.png",
     "question": "Which age group has a prevalence of drug use disorders that is closest to the average prevalence across all listed age-specific groups (excluding “All ages” and “Age-standardized”)?",
-    "options": [" 30–34 years old", "15–19 years old", "15–29 years old", "15–49 years old"],
+    "options": ["30–34 years old", "15–19 years old", "15–29 years old", "15–49 years old"],
     "answer": "30–34 years old",
     "textExplanation": [
       {
