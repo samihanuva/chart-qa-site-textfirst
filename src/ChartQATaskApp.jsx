@@ -950,11 +950,11 @@ useEffect(() => {
 
         <div className="flex flex-col items-center p-6 pb-20 pt-20 min-h-screen">
           {/* Chart and Explanation Layout */}
-          <div className="flex w-full max-w-[1300px] justify-center gap-4 mb-8">
-            <div className="w-[50%] h-[500px] flex items-center justify-center border rounded shadow">
+          <div className="flex w-full max-w-[1500px] justify-center gap-4 mb-8">
+            <div className="w-[65%] h-[500px] flex items-center justify-center border rounded shadow">
               <img src={getChartImage()} alt="Chart" className="max-w-full max-h-full object-contain" />
             </div>
-            <div className="w-[50%] h-[500px] overflow-y-auto border rounded shadow p-4 relative">
+            <div className="w-[35%] h-[500px] overflow-y-auto border rounded shadow p-4 relative">
               {(hasVisual || hasText) && <h2 className="text-lg font-semibold mb-2">Explanation Steps</h2>}
               {hasVisual && selected && (
                 <button
